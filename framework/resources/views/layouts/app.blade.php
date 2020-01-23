@@ -522,38 +522,6 @@
             </ul>
           </li> @endif
 
-            @if((Request::is('admin/income')) || (Request::is('admin/expense')) || (Request::is('admin/transaction')) || (Request::is('admin/income_records')) || (Request::is('admin/expense_records')) )
-            @php($class="menu-open")
-            @php($active="active")
-
-            @else
-            @php($class="")
-            @php($active="")
-            @endif
-          @if(in_array(2,$modules)) <li class="nav-item has-treeview {{$class}}">
-            <a href="#" class="nav-link {{$active}}">
-              <i class="nav-icon fa fa-money"></i>
-              <p>
-                @lang('menu.transactions')
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('income.index')}}" class="nav-link @if((Request::is('admin/income'))|| (Request::is('admin/income_records'))) active @endif">
-                  <i class="fa fa-newspaper-o nav-icon"></i>
-                  <p>@lang('fleet.manage_income')</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('expense.index')}}" class="nav-link @if((Request::is('admin/expense')) || (Request::is('admin/expense_records'))) active @endif">
-                  <i class="fa fa-newspaper-o nav-icon"></i>
-                  <p>@lang('fleet.manage_expense')</p>
-                </a>
-              </li>
-            </ul>
-          </li> @endif
-
             @if((Request::is('admin/bookings*'))  || (Request::is('admin/bookings_calendar')) || (Request::is('admin/booking-quotation*')))
             @php($class="menu-open")
             @php($active="active")
@@ -622,18 +590,6 @@
             <ul class="nav nav-treeview">
               @if(in_array(2,$modules))
               <li class="nav-item">
-                <a href="{{ url('admin/reports/income') }}" class="nav-link @if(Request::is('admin/reports/income')) active @endif">
-                  <i class="fa fa-credit-card nav-icon"></i>
-                  <p> @lang('fleet.income') @lang('fleet.report')</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ url('admin/reports/expense') }}" class="nav-link @if(Request::is('admin/reports/expense')) active @endif">
-                  <i class="fa fa-money nav-icon"></i>
-                  <p> @lang('fleet.expense') @lang('fleet.report')</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{ route('reports.delinquent') }}" class="nav-link @if(Request::is('admin/reports/delinquent')) active @endif">
                   <i class="fa fa-file-text nav-icon"></i>
                   <p> @lang('menu.deliquentReport')</p>
@@ -684,14 +640,6 @@
                 </a>
               </li>
               @endif
-              @if(in_array(6,$modules))
-              <li class="nav-item">
-                <a href="{{ route('reports.vendors') }}" class="nav-link @if(Request::is('admin/reports/vendors')) active @endif">
-                  <i class="fa fa-cubes nav-icon"></i>
-                  <p>@lang('fleet.vendorReport')</p>
-                </a>
-              </li>
-              @endif
               @if(in_array(2,$modules))
               <li class="nav-item">
                 <a href="{{ route('reports.yearly') }}" class="nav-link @if(Request::is('admin/reports/yearly')) active @endif">
@@ -730,38 +678,6 @@
                 <a href="{{ route('fuel.index') }}" class="nav-link @if(Request::is('admin/fuel')) active @endif">
                   <i class="fa fa-history nav-icon"></i>
                   <p>@lang('fleet.manage_fuel')</p>
-                </a>
-              </li>
-            </ul>
-          </li> @endif
-
-            @if(Request::is('admin/vendors*'))
-            @php($class="menu-open")
-            @php($active="active")
-
-            @else
-            @php($class="")
-            @php($active="")
-            @endif
-          @if(in_array(6,$modules)) <li class="nav-item has-treeview {{$class}}">
-            <a href="#" class="nav-link {{$active}}">
-              <i class="nav-icon fa fa-cubes"></i>
-              <p>
-                @lang('fleet.vendors')
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('vendors.create') }}" class="nav-link @if(Request::is('admin/vendors/create')) active @endif">
-                  <i class="fa fa-plus-square nav-icon"></i>
-                  <p> @lang('fleet.add_vendor')</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('vendors.index') }}" class="nav-link @if((Request::is('admin/vendors*') && !(Request::is('admin/vendors/create')))) active @endif">
-                  <i class="fa fa-cube nav-icon"></i>
-                  <p>@lang('fleet.manage_vendor')</p>
                 </a>
               </li>
             </ul>
@@ -1140,7 +1056,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>@lang('fleet.copyright') &copy; 2017-{{date("Y")}} <a href="https://hyvikk.com">Hyvikk Solutions</a>.</strong>
+    <strong>@lang('fleet.copyright') &copy; 2017-{{date("Y")}} <a href="https://jobs-conseil.com" target="_blank">JOBS CONSEIL</a>.</strong>
     @lang('fleet.all_rights_reserved')
     <div class="float-right d-none d-sm-inline-block">
       <b>@lang('fleet.version')</b> 4.0.1

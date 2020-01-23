@@ -11,8 +11,8 @@ Route::namespace ('Admin')->group(function () {
 		Artisan::call('config:clear');
 	});
 
-	Route::get("/", 'HomeController@index')->middleware(['lang_check', 'auth']);
-	Route::group(['middleware' => ['lang_check', 'auth', 'officeadmin']], function () {
+		Route::get("/", 'HomeController@index')->middleware(['lang_check', 'auth']);
+		Route::group(['middleware' => ['lang_check', 'auth', 'officeadmin']], function () {
 		Route::get('test', function () {
 			return view('geocode');
 		});

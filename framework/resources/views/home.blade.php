@@ -56,26 +56,7 @@
             </div>
           </div>
           @endif
-          @if(in_array(2,$modules))
-          <div class="col-lg-4 col-xs-6">
-            <div class="info-box">
-              <span class="info-box-icon bg-success"><i class="fa fa-money"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text">@lang('fleet.income')</span>
-                <span class="info-box-number"><small>{{ Hyvikk::get("currency")}}</small> {{$income}}</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4  col-xs-6">
-            <div class="info-box">
-              <span class="info-box-icon bg-danger"><i class="fa fa-credit-card"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text">@lang('fleet.expense')</span>
-                <span class="info-box-number"><small>{{ Hyvikk::get("currency")}}</small> {{$expense}}</span>
-              </div>
-            </div>
-          </div>
-          @endif
+          
 
           @if(in_array(0,$modules))
           <div class="col-lg-4  col-xs-6">
@@ -84,17 +65,6 @@
               <div class="info-box-content">
                 <span class="info-box-text">@lang('fleet.customers')</span>
                 <span class="info-box-number">{{$customers}}</span>
-              </div>
-            </div>
-          </div>
-          @endif
-          @if(in_array(6,$modules))
-          <div class="col-lg-4  col-xs-6">
-            <div class="info-box">
-              <span class="info-box-icon bg-success"><i class="fa fa-cubes"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text">@lang('fleet.vendors')</span>
-                <span class="info-box-number">{{$vendors}}</span>
               </div>
             </div>
           </div>
