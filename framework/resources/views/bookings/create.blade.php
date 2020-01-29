@@ -2,11 +2,25 @@
 @section('extra_css')
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
 @endsection
-@section("breadcrumb")
-<li class="breadcrumb-item "><a href="{{ route("bookings.index")}}">@lang('menu.bookings')</a></li>
-<li class="breadcrumb-item active">@lang('fleet.new_booking')</li>
-@endsection
 @section('content')
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.new_booking')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item "><a href="{{ route('bookings.index')}}"><i class="feather icon-list"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#">@lang('fleet.new_booking')</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
   <div class="col-md-12">
     <div class="card card-success">

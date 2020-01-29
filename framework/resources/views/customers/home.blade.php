@@ -80,39 +80,57 @@
 </style>
 @endsection
 @section('content')
-<div class="wrapper">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-        	<table id="acrylic" width="95%">
-        		<thead>
-        		    <tr>
-        		        <th><h4 class="text-center text-bold">{{Auth::user()->name}}</h4></th>
-        		    </tr>
-        		</thead>
-        		<tbody>
-        		    <tr>
-        		        <td><h5 class="text-center text-bold">@lang('fleet.total') @lang('fleet.amount') : {{Hyvikk::get('currency')}} {{(is_null($income[0]->income) ? 0 : $income[0]->income)}}
-        		        </h5></td>
-        		    </tr>
-        		    <tr>
-        		        <td><h5 class="text-center text-bold">
-        		        	@lang('fleet.total') @lang('fleet.distence') : {{(is_null($total_kms[0]->total_kms) ? 0 : $total_kms[0]->total_kms)}} {{Hyvikk::get('dis_format')}}
-        		        </h5></td>
-        		    </tr>
-        		    <tr>
-        		        <td><h5 class="text-center text-bold">
-        		        	@lang('fleet.total') @lang('fleet.waitingtime') : {{$time}}
-        		        </h5></td>
-        		    </tr>
-        		    <tr>
-        		        <td><h5 class="text-center text-bold">
-        		        	@lang('fleet.travel_time') : {{$travel_time}} Minutes
-        		        </h5></td>
-        		    </tr>
-        		</tbody>
-        	</table>
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.customers')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('customers.index')}}"><i class="feather icon-users"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#"> XXX </a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
+<!-- [ breadcrumb ] end -->
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <table id="acrylic" width="95%">
+            <thead>
+                <tr>
+                    <th><h4 class="text-center text-bold">{{Auth::user()->name}}</h4></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><h5 class="text-center text-bold">@lang('fleet.total') @lang('fleet.amount') : {{Hyvikk::get('currency')}} {{(is_null($income[0]->income) ? 0 : $income[0]->income)}}
+                    </h5></td>
+                </tr>
+                <tr>
+                    <td><h5 class="text-center text-bold">
+                        @lang('fleet.total') @lang('fleet.distence') : {{(is_null($total_kms[0]->total_kms) ? 0 : $total_kms[0]->total_kms)}} {{Hyvikk::get('dis_format')}}
+                    </h5></td>
+                </tr>
+                <tr>
+                    <td><h5 class="text-center text-bold">
+                        @lang('fleet.total') @lang('fleet.waitingtime') : {{$time}}
+                    </h5></td>
+                </tr>
+                <tr>
+                    <td><h5 class="text-center text-bold">
+                        @lang('fleet.travel_time') : {{$travel_time}} Minutes
+                    </h5></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 @endsection

@@ -11,22 +11,36 @@
   }
 </style>
 @endsection
-@section("breadcrumb")
-<li class="breadcrumb-item active">@lang('fleet.vehicles')</li>
-@endsection
 
 @section('content')
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.vehicles')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#"> @lang('fleet.vehicles')</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
   <div class="col-md-12">
-    <div class="card card-info">
+    <div class="card">
       <div class="card-header">
         <h3 class="card-title">@lang('fleet.manageVehicles') &nbsp; <a href="{{ route('vehicles.create')}}" class="btn btn-success">@lang('fleet.addNew')</a>
           <button data-toggle="modal" data-target="#import" class="btn btn-warning">@lang('fleet.import')</button>
         </h3>
       </div>
 
-      <div class="card-body table-responsive">
-        <table class="table" id="data_table" style="padding-bottom: 25px">
+      <div class="card-body dt-responsive table-responsive">
+        <table id="base-style" class="table table-striped table-bordered nowrap" style="padding-bottom: 25px">
           <thead class="thead-inverse">
             <tr>
               <th>
@@ -222,6 +236,11 @@
 @endsection
 
 @section('script')
+<!-- datatable Js -->
+<script src="{{asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/js/pages/data-styling-custom.js')}}"></script>
+
 
 <script type="text/javascript">
   $("#del_btn").on("click",function(){

@@ -63,11 +63,26 @@ input:checked + .slider:before {
 
 </style>
 @endsection
-@section("breadcrumb")
-<li class="breadcrumb-item"><a href="{{ route("service-item.index")}}">@lang('fleet.serviceItems')</a></li>
-<li class="breadcrumb-item active">@lang('fleet.edit_service_item')</li>
-@endsection
+
 @section('content')
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.booking_quotes')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('service-reminder.index')}}"><i class="feather icon-rotate-ccw"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#">@lang('fleet.add_service_item')</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
   <div class="col-md-12">
     {!! Form::open(['route' => ['service-item.update',$service->id],'method'=>'Patch']) !!}

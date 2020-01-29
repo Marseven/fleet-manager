@@ -1,10 +1,24 @@
 @extends('layouts.app')
-@section("breadcrumb")
-<li class="breadcrumb-item"><a href="{{ route("vehicle_group.index")}}">@lang('fleet.vehicleGroup') </a></li>
-<li class="breadcrumb-item active">@lang('fleet.createGroup')</li>
-@endsection
-@section('content')
 
+@section('content')
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.vehicleGroup')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('vehicle_group.index')}}"><i class="fa fa-car"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#"> @lang('fleet.createGroup')</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
     <div class="col-md-12">
         <div class="card card-success">

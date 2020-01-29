@@ -1,109 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-  <title><?php echo e(Hyvikk::get('app_name')); ?></title>
-  <link rel="icon" href="<?php echo e(asset('assets/images/'.Hyvikk::get('icon_img'))); ?>" type="image/png">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo e(asset('assets/css/dist/adminlte.min.css')); ?>">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="<?php echo e(asset('assets/plugins/iCheck/square/blue.css')); ?>">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<title><?php echo e(Hyvikk::get('app_name')); ?></title>
+	<!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js does not work if you view the page via file:// -->
+	<!--[if lt IE 11]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="">
+	<meta name="author" content="Mebodo Richard Aristide" />
+	<script>
+	    (function(h,o,t,j,a,r){
+	        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+	        h._hjSettings={hjid:1629434,hjsv:6};
+	        a=o.getElementsByTagName('head')[0];
+	        r=o.createElement('script');r.async=1;
+	        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+	        a.appendChild(r);
+	    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	</script>
+	<!-- Favicon icon -->
+	<link rel="icon" href="<?php echo e(asset('assets/images/ico.png')); ?>" type="image/x-icon">
 
-  <?php echo $__env->yieldContent("extra_css"); ?>
-  <script>
-    window.Laravel = <?php echo json_encode([
-    'csrfToken' => csrf_token(),
-    ]); ?>;
-  </script>
+	<!-- vendor css -->
+	<link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>">
+	
+	
+
+
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <center> <img src="<?php echo e(asset('assets/images/'. Hyvikk::get('logo_img') )); ?>" height="140px" width="300px" /> </center>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-      <form class="form-horizontal" role="form" method="POST" action="<?php echo e(route('login')); ?>">
-        <?php echo e(csrf_field()); ?>
 
-        <div class="form-group has-feedback">
-          <div class="input-group <?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
-                      <div class="input-group-prepend">
-            <span class="fa fa-envelope form-control-feedback input-group-text"></span>
-          </div>
-          <input type="email" class="form-control" placeholder="Email" name="email" value="<?php echo e(old('email')); ?>" id="email" autofocus required>
+<!-- [ auth-signin ] start -->
+<div class="auth-wrapper">
+	<div class="auth-content">
+		<div class="card">
+			<div class="row align-items-center text-center">
+				<div class="col-md-12">
+					<div class="card-body">
+						<img src="<?php echo e(asset('assets/images/logo-dark.png')); ?>" alt="" class="img-fluid mb-4">
+            <h4 class="mb-3 f-w-400">Connexion</h4>
+            <form class="form-horizontal" role="form" method="POST" action="<?php echo e(route('login')); ?>">
+              <?php echo e(csrf_field()); ?>
 
-            <?php if($errors->has('email')): ?>
-              <span class="help-block">
-                  <strong class="text-danger"><?php echo e($errors->first('email')); ?></strong>
-              </span>
-            <?php endif; ?>
-          </div>
-        </div>
-        <div class="form-group has-feedback">
-          <div class="input-group <?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
-          <div class="input-group-prepend">
-            <span class="fa fa-lock form-control-feedback input-group-text"></span>
-          </div>
-          <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
-            <?php if($errors->has('password')): ?>
-              <span class="help-block">
-                  <strong class="text-danger"><?php echo e($errors->first('password')); ?></strong>
-              </span>
-            <?php endif; ?>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="checkbox icheck">
-              <label>
-                <input type="checkbox" name="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>> Remember Me
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-      <!-- /.social-auth-links -->
-      <p class="mb-1">
-        <a href="<?php echo e(route('password.request')); ?>">I forgot my password</a>
-      </p>
-    </div>
-    <!-- /.login-card-body -->
-  </div>
+              <div class="form-group mb-3 <?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
+                <label class="floating-label" for="Email">Email</label>
+                <input type="email" class="form-control" placeholder="Email" name="email" value="<?php echo e(old('email')); ?>" id="email" autofocus required>
+                <?php if($errors->has('email')): ?>
+                  <span class="help-block">
+                      <strong class="text-danger"><?php echo e($errors->first('email')); ?></strong>
+                  </span>
+                <?php endif; ?>
+              </div>
+              
+              <div class="form-group mb-4 <?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
+                <label class="floating-label" for="Password">Mot de Passe</label>
+                <input type="password" class="form-control" placeholder="Password" id="password" name="password" required>
+                <?php if($errors->has('password')): ?>
+                  <span class="help-block">
+                      <strong class="text-danger"><?php echo e($errors->first('password')); ?></strong>
+                  </span>
+                <?php endif; ?>
+              </div>
+
+              <div class="custom-control custom-checkbox text-left mb-4 mt-2">
+                <input type="checkbox" name="remember" <?php echo e(old('remember') ? 'checked' : ''); ?> class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Resté connecté.</label>
+              </div>
+
+              <button type="submit" class="btn btn-block btn-primary mb-4">Connexion</button>
+              <p class="mb-2 text-muted">Mot de passe oublié? <a href="<?php echo e(route('password.request')); ?>" class="f-w-400">Réinitialiser</a></p>
+            </form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<!-- /.login-box -->
+<!-- [ auth-signin ] end -->
 
-<!-- jQuery -->
-<script src="<?php echo e(asset('assets/plugins/jquery/jquery.min.js')); ?>"></script>
-<!-- Bootstrap 4 -->
-<script src="<?php echo e(asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
-<!-- iCheck -->
-<script src="<?php echo e(asset('assets/plugins/iCheck/icheck.min.js')); ?>"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass   : 'iradio_square-blue',
-      increaseArea : '20%' // optional
-    })
-  })
-</script>
+<!-- Required Js -->
+<script src="<?php echo e(asset('assets/js/vendor-all.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/plugins/bootstrap.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/ripple.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/pcoded.min.js')); ?>"></script>
+
+
+
 </body>
-</html><?php /**PATH /Applications/MAMP/htdocs/fleet-manager-git/framework/resources/views/auth/login.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH /Applications/MAMP/htdocs/fleet-manager-git/framework/resources/views/auth/login.blade.php ENDPATH**/ ?>

@@ -1,9 +1,23 @@
 @extends('layouts.app')
-@section("breadcrumb")
-<li class="breadcrumb-item"><a href="#">@lang('menu.reports')</a></li>
-<li class="breadcrumb-item active">@lang('fleet.booking_report')</li>
-@endsection
+
 @section('content')
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.booking_report')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#"> @lang('fleet.booking_report')</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
   <div class="col-md-12">
     <div class="card card-info">
@@ -12,7 +26,7 @@
         </h3>
       </div>
 
-      <div class="card-body">
+      <div class="card-body" style="padding:25px;">
         {!! Form::open(['route' => 'reports.booking','method'=>'post','class'=>'form-inline']) !!}
         <div class="row">
           <div class="form-group" style="margin-right: 5px">
@@ -54,15 +68,15 @@
 
 <div class="row">
   <div class="col-md-12">
-    <div class="card card-info">
+    <div class="card">
       <div class="card-header">
         <h3 class="card-title">
         @lang('fleet.booking_count') : {{$bookings->count()}}
         </h3>
       </div>
-      <div class="card-body table-responsive">
-        <table class="table" id="myTable">
-          <thead class="thead-inverse">
+      <div class="card-body dt-responsive table-responsive" style="padding:25px;">
+        <table id="base-style" class="table table-striped table-bordered nowrap">
+          <thead>
             <tr>
               <th>@lang('fleet.customer')</th>
               <th>@lang('fleet.vehicle')</th>
@@ -113,6 +127,12 @@
 
 
 @section("script")
+
+
+<!-- datatable Js -->
+<script src="{{asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/js/pages/data-styling-custom.js')}}"></script>
 
 <script type="text/javascript" src="{{ asset('assets/js/cdn/jszip.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/cdn/pdfmake.min.js')}}"></script>

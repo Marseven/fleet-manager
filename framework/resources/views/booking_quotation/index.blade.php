@@ -8,13 +8,27 @@
     }
   </style>
 @endsection
-@section("breadcrumb")
-<li class="breadcrumb-item active">@lang('fleet.booking_quotes')</li>
-@endsection
 @section('content')
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.booking_quotes')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#">@lang('fleet.booking_quotes')</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
   <div class="col-md-12">
-    <div class="card card-info">
+    <div class="card">
       <div class="card-header with-border">
         <h3 class="card-title"> @lang('fleet.manageBookingQuotations') &nbsp;
           <a href="{{route("booking-quotation.create")}}" class="btn btn-success">@lang('fleet.add_quote')</a>
@@ -22,9 +36,9 @@
       </div>
 
       <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-responsive display" id="data_table" style="padding-bottom: 35px; width: 100%">
-            <thead class="thead-inverse">
+        <div class="dt-responsive table-responsive">
+          <table id="base-style" class="table table-striped table-bordered nowrap" style="padding-bottom: 35px;">
+            <thead>
               <tr>
                 <th>
                   @if($data->count() > 0)
@@ -183,6 +197,10 @@
 </div>
 @endsection
 @section("script")
+<!-- datatable Js -->
+<script src="{{asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/js/pages/data-styling-custom.js')}}"></script>
 
 <script src="{{ asset('assets/js/moment.js') }}"></script>
 <!-- bootstrap datepicker -->

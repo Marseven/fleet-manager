@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section("breadcrumb")
-<li class="breadcrumb-item active">@lang('menu.manageParts')</li>
-@endsection
+
 @section('extra_css')
 <style type="text/css">
   .checkbox, #chk_all{
@@ -11,6 +9,23 @@
 </style>
 @endsection
 @section('content')
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.booking_quotes')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#"> @lang('menu.manageParts')</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
   <div class="col-md-12">
     <div class="card card-info">
@@ -20,8 +35,8 @@
         </h3>
       </div>
 
-      <div class="card-body table-responsive">
-        <table class="table" id="data_table">
+      <div class="card-body dt-responsive table-responsive">
+        <table id="base-style" class="table table-striped table-bordered nowrap">
           <thead class="thead-inverse">
             <tr>
               <th>
@@ -196,6 +211,11 @@
 @endsection
 
 @section('script')
+<!-- datatable Js -->
+<script src="{{asset('assets/js/plugins/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/js/plugins/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('assets/js/pages/data-styling-custom.js')}}"></script>
+
 <script type="text/javascript">
   $("#del_btn").on("click",function(){
     var id=$(this).data("submit");

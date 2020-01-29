@@ -64,11 +64,25 @@ input:checked + .slider:before {
 </style>
 <link rel="stylesheet" href="{{asset('assets/css/bootstrap-datepicker.min.css')}}">
 @endsection
-@section("breadcrumb")
-<li class="breadcrumb-item"><a href="{{ route("fuel.index")}}">@lang('fleet.fuel')</a></li>
-<li class="breadcrumb-item active">@lang('fleet.add_fuel')</li>
-@endsection
 @section('content')
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.booking_quotes')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="#"><i class="feather icon-droplet"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#">@lang('fleet.add_fuel')</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
   <div class="col-md-12">
     <div class="card card-success">

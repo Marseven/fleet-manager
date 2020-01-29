@@ -2,12 +2,26 @@
 @section('extra_css')
 <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap-datetimepicker.min.css')}}">
 @endsection
-@section("breadcrumb")
-<li class="breadcrumb-item"><a href="{{ url('admin/vehicle-reviews')}}">@lang('fleet.vehicle_inspection')</a></li>
-<li class="breadcrumb-item active">@lang('fleet.add_vehicle_inspection')</li>
-@endsection
-@section('content')
 
+@section('content')
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">@lang('fleet.vehicle_inspection')</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url('admin/')}}"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('admin/vehicle-reviews')}}"><i class="fa fa-car"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#"> @lang('fleet.add_vehicle_inspection')</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
   <div class="col-md-12">
     <div class="card card-success">

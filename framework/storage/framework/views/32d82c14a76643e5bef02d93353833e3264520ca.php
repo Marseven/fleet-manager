@@ -3,6 +3,25 @@
 <li class="breadcrumb-item active"><?php echo app('translator')->getFromJson('menu.general_settings'); ?></li>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10"><?php echo app('translator')->getFromJson('fleet.dashboard'); ?></h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?php echo e(url('admin/')); ?>"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="#"><i class="feather icon-settings"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#"> <?php echo app('translator')->getFromJson('menu.general_settings'); ?></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
+
 <div class="row">
   <div class="col-md-12">
     <div class="card card-success">
@@ -175,7 +194,7 @@
       <div class="card-footer">
         <div class="col-md-2">
           <div class="form-group">
-            <input type="submit"  class="form-control btn btn-success"  value="<?php echo app('translator')->getFromJson('fleet.save'); ?>" />
+            <input type="submit"  class="btn btn-success"  value="<?php echo app('translator')->getFromJson('fleet.save'); ?>" />
           </div>
         </div>
       </div>

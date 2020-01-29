@@ -6,7 +6,7 @@ return [
 	'email_content' => 'Définir le contenu du courrier',
 	'email_notification' => 'Notification par email',
 	'api_settings' => "Paramètres de l'API",
-	'general_settings' => 'réglages généraux',
+	'general_settings' => 'Réglages Généraux',
 	'fare_settings' => 'Paramètres tarifaires',
 	'Dashboard' => 'Tableau de bord',
 	'notifications' => 'Notifications',
@@ -46,7 +46,7 @@ return [
 
 	'settings' => 'Paramètres',
 	'profile' => 'Profil',
-	'logout' => "Connectez - Out",
+	'logout' => "Déconnexion",
 	'calendar' => 'Calendrier de réservation',
 
 ];

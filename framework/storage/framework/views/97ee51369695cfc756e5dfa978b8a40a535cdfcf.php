@@ -1,8 +1,22 @@
-<?php $__env->startSection("breadcrumb"); ?>
-<li class="breadcrumb-item"><?php echo app('translator')->getFromJson('menu.settings'); ?></li>
-<li class="breadcrumb-item active"><?php echo app('translator')->getFromJson('fleet.expenseCategories'); ?></li>
-<?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
+<!-- [ breadcrumb ] start -->
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10"><?php echo app('translator')->getFromJson('fleet.dashboard'); ?></h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?php echo e(url('admin/')); ?>"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="#"><i class="feather icon-settings"></i></a></li>
+                    <li class="breadcrumb-item active"><a href="#"> <?php echo app('translator')->getFromJson('fleet.expenseCategories'); ?></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
 <div class="row">
   <div class="col-md-12">
     <?php if(count($errors) > 0): ?>
@@ -22,9 +36,9 @@
         </h3>
       </div>
 
-      <div class="card-body table-responsive">
-        <table class="table" id="data_table">
-          <thead class="thead-inverse">
+      <div class="card-body dt-responsive table-responsive">
+        <table id="base-style" class="table table-striped table-bordered nowrap">
+          <thead>
             <tr>
               <th>#</th>
               <th><?php echo app('translator')->getFromJson('fleet.name'); ?></th>
@@ -139,6 +153,11 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
+<!-- datatable Js -->
+<script src="<?php echo e(asset('assets/js/plugins/jquery.dataTables.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/plugins/dataTables.bootstrap4.min.js')); ?>"></script>
+<script src="<?php echo e(asset('assets/js/pages/data-styling-custom.js')); ?>"></script>
+
 <script type="text/javascript">
   $("#del_btn").on("click",function(){
     var id=$(this).data("submit");
